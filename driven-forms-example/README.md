@@ -72,46 +72,15 @@ Crear el archivo [.prettierrc.json](.prettierrc.json)
 }
 ```
 
-Plugins recomendados:
-
-- [prettier-plugin-void-html](https://github.com/awmottaz/prettier-plugin-void-html)
-
-### prettier-plugin-void-html
-
-#### Descripción
-
-Evitar el cierre de etiquetas void cuando se da formado a documentos html con Prettier.
-
-#### Instalación
-
-```
-npm install --save-dev @awmottaz/prettier-plugin-void-html
-```
-
-#### Configuración
-
-Editar el archivo [.prettierrc.json](.prettierrc.json) y añadir:
-
-```json
-{
-  "plugins": ["@awmottaz/prettier-plugin-void-html"]
-}
-```
-
 ## ESLint
 
 ### Instalación y configuración
 
 ```
-npm init @eslint/config@latest
+ng add @angular-eslint/schematics
 ```
 
-Ver archivo [eslint.config.mjs](./eslint.config.mjs)
-
-Conectores:
-
-- eslint-plugin-html
-- eslint-plugin-markdown
+Ver archivo [eslint.config.js](eslint.config.js)
 
 ### eslint-config-prettier
 
@@ -127,53 +96,26 @@ npm install --save-dev eslint-config-prettier
 
 #### Configuración
 
-Editar el archivo [eslint.config.mjs](./eslint.config.mjs)
+Editar el archivo [eslint.config.js](eslint.config.js)
 
 ```js
-import eslintConfigPrettier from 'eslint-config-prettier';
-
-export default [eslintConfigPrettier];
+const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
+...
+    extends: [eslint.configs.recommended, ...tseslint.configs.recommended, ...tseslint.configs.stylistic, ...angular.configs.tsRecommended, eslintPluginPrettierRecommended],
+...
 ```
 
-### eslint-plugin-html
+Editar el archivo [.prettierrc.json](.prettierrc.json)
 
-#### Instalación
-
-```
-npm install --save-dev eslint-plugin-html
-```
-
-#### Configuración
-
-Editar el archivo [eslint.config.mjs](./eslint.config.mjs)
-
-```js
-import html from 'eslint-plugin-html';
-
-export default [
-  {
-    files: ['**/*.html'],
-    plugins: { html }
-  }
-];
-```
-
-### eslint-plugin-markdown
-
-#### Instalación
-
-```
-npm install --save-dev eslint-plugin-markdown
-```
-
-#### Configuración
-
-Editar el archivo [eslint.config.mjs](./eslint.config.mjs)
-
-```js
-import markdown from 'eslint-plugin-markdown';
-
-export default [...markdown.configs.recommended];
+```json
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
 ```
 
 # VS Code
