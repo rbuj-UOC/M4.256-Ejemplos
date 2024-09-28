@@ -36,6 +36,8 @@
     </div>
     <div *ngIf="alias.errors && isValidForm != null && !isValidForm" class="error">
       <span *ngIf="alias.errors.required">Alias is required</span>
+      <span *ngIf="alias.errors.minlength">Alias must be greater than 5 characters</span>
+      <span *ngIf="alias.errors.maxlength">Alias must be lower than 25 characters</span>
     </div>
 
     <div>

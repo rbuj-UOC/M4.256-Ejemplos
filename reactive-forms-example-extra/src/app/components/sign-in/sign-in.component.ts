@@ -27,7 +27,7 @@ export class SignInComponent {
     this.name = new FormControl(this.user.name, [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
     this.surname1 = new FormControl(this.user.surname1, [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
     this.surname2 = new FormControl(this.user.surname2, [Validators.minLength(5), Validators.maxLength(25)]);
-    this.alias = new FormControl(this.user.alias, Validators.required);
+    this.alias = new FormControl(this.user.alias, [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
     this.birthDate = new FormControl(this.user.birthDate, [Validators.required, Validators.minLength(8)]);
     this.isValidForm = null;
     this.registerForm = this.formBuilder.group({
