@@ -18,6 +18,7 @@ export class SignInComponent {
   alias: FormControl;
   birthDate: FormControl;
   registerForm: FormGroup;
+  isValidForm: boolean | null;
 
   constructor(private formBuilder: FormBuilder) {
     this.user = new UserDto('', '', '', '', new Date(), '', '');
@@ -28,6 +29,7 @@ export class SignInComponent {
     this.surname2 = new FormControl(this.user.surname2, [Validators.minLength(5), Validators.maxLength(25)]);
     this.alias = new FormControl(this.user.alias, Validators.required);
     this.birthDate = new FormControl(this.user.birthDate, [Validators.required, Validators.minLength(8)]);
+    this.isValidForm = null;
     this.registerForm = this.formBuilder.group({
       email: this.email,
       password: this.password,
@@ -40,6 +42,7 @@ export class SignInComponent {
   }
 
   joinNow(): void {
+    this.isValidForm = false;
     if (this.registerForm.invalid) {
       return;
     }
