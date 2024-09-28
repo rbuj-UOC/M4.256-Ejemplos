@@ -137,7 +137,7 @@ Editar el archivo [.prettierrc.json](.prettierrc.json)
    - [Paste JSON as Code](https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype)
    - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
    - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-   - [Emmet](https://code.visualstudio.com/docs/editor/emmet) (ja està inclosa)
+   - [Emmet](https://code.visualstudio.com/docs/editor/emmet) (ya está incluida)
    - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
    - [HTMLHint](https://marketplace.visualstudio.com/items?itemName=HTMLHint.vscode-htmlhint)
    - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
@@ -173,6 +173,19 @@ Editar el archivo [.prettierrc.json](.prettierrc.json)
 
 ```
 es,en
+```
+
+## HTMLHint
+
+1. Abrir les preferencias del espacio de trabajo en VS Code: En macOS presionar ⌘, y seleccionar `Workspace`
+2. Teclear `htmlhint options`
+3. Deshabilitar avisos
+
+```json
+  "htmlhint.options": {
+    "attr-lowercase": false,
+    "doctype-first": false
+  }
 ```
 
 ## Abreviaturas de Emmet
