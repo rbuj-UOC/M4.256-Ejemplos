@@ -1,0 +1,13 @@
+{
+  "cSpell.language": "es,en",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "htmlhint.options": {
+    "attr-lowercase": false,
+    "doctype-first": false
+  },
+  "emmet.triggerExpansionOnTab": true
+}
