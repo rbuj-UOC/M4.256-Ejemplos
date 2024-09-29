@@ -1,12 +1,12 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MessageDTO } from '../Models/message.dto';
+import { MessageDto } from '../models/message-dto.model';
 
 interface deleteResponse {
   affected: number;
 }
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class MessageService {
   private urlMessageApi: string;
@@ -15,30 +15,24 @@ export class MessageService {
     this.urlMessageApi = 'http://localhost:3000/messages';
   }
 
-  getMessages(): Promise<MessageDTO[]> {
-    return this.http.get<MessageDTO[]>(this.urlMessageApi).toPromise();
+  getMessages(): Promise<MessageDto[]> {
+    return this.http.get<MessageDto[]>(this.urlMessageApi).toPromise();
   }
 
-  getMessageById(msgId: number): Promise<MessageDTO> {
-    return this.http
-      .get<MessageDTO>(this.urlMessageApi + '/' + msgId)
-      .toPromise();
+  getMessageById(msgId: number): Promise<MessageDto> {
+    return this.http.get<MessageDto>(this.urlMessageApi + '/' + msgId).toPromise();
   }
 
-  createMessage(msg: MessageDTO): Promise<MessageDTO> {
-    return this.http.post<MessageDTO>(this.urlMessageApi, msg).toPromise();
+  createMessage(msg: MessageDto): Promise<MessageDto> {
+    return this.http.post<MessageDto>(this.urlMessageApi, msg).toPromise();
   }
 
-  updateMessage(msgId: number, msg: MessageDTO): Promise<MessageDTO> {
-    return this.http
-      .put<MessageDTO>(this.urlMessageApi + '/' + msgId, msg)
-      .toPromise();
+  updateMessage(msgId: number, msg: MessageDto): Promise<MessageDto> {
+    return this.http.put<MessageDto>(this.urlMessageApi + '/' + msgId, msg).toPromise();
   }
 
   deleteMessage(msgId: number): Promise<deleteResponse> {
-    return this.http
-      .delete<deleteResponse>(this.urlMessageApi + '/' + msgId)
-      .toPromise();
+    return this.http.delete<deleteResponse>(this.urlMessageApi + '/' + msgId).toPromise();
   }
 
   errorLog(error: HttpErrorResponse): void {

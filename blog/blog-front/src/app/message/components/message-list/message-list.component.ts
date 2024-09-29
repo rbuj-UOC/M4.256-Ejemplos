@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MessageDTO } from '../../Models/message.dto';
-import { MessageService } from '../../Services/message.service';
+import { MessageDto } from '../../models/message-dto.model';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-message-list',
   templateUrl: './message-list.component.html',
-  styleUrls: ['./message-list.component.css'],
+  styleUrl: './message-list.component.scss'
 })
 export class MessageListComponent {
-  messages!: MessageDTO[];
+  messages!: MessageDto[];
 
-  constructor(private messageService: MessageService, private router: Router) {
+  constructor(
+    private messageService: MessageService,
+    private router: Router
+  ) {
     this.loadMessages();
   }
 

@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  UntypedFormBuilder,
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MessageDTO } from '../../Models/message.dto';
-import { MessageService } from '../../Services/message.service';
+import { MessageDto } from '../../models/message-dto.model';
+import { MessageService } from '../../services/message.service';
+
 @Component({
   selector: 'app-message-form',
   templateUrl: './message-form.component.html',
-  styleUrls: ['./message-form.component.css'],
+  styleUrl: './message-form.component.scss'
 })
-export class MessageFormComponent implements OnInit {
-  message: MessageDTO;
+export class MessageFormComponent {
+  message: MessageDto;
   title: UntypedFormControl;
   description: UntypedFormControl;
   messageForm: UntypedFormGroup;
@@ -32,23 +28,17 @@ export class MessageFormComponent implements OnInit {
   ) {
     this.isValidForm = null;
     this.msgId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.message = new MessageDTO('', '');
+    this.message = new MessageDto('', '');
     this.isUpdateMode = false;
     this.validRequest = false;
 
-    this.title = new UntypedFormControl(this.message.title, [
-      Validators.required,
-      Validators.maxLength(150),
-    ]);
+    this.title = new UntypedFormControl(this.message.title, [Validators.required, Validators.maxLength(150)]);
 
-    this.description = new UntypedFormControl(
-      this.message.description,
-      Validators.required
-    );
+    this.description = new UntypedFormControl(this.message.description, Validators.required);
 
     this.messageForm = this.formBuilder.group({
       title: this.title,
-      description: this.description,
+      description: this.description
     });
   }
 
@@ -65,7 +55,7 @@ export class MessageFormComponent implements OnInit {
 
         this.messageForm = this.formBuilder.group({
           title: this.title,
-          description: this.description,
+          description: this.description
         });
       } catch (error: any) {
         this.messageService.errorLog(error);
