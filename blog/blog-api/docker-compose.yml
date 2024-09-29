@@ -1,13 +1,10 @@
-version: '3.5'
-
 services:
   db:
-    image: postgres
+    image: postgres:alpine
     restart: always
     environment:
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=uoc-blog
-    container_name: postgres
     volumes:
       - ./pgdata:/var/lib/postgresql/data
     ports:
@@ -17,7 +14,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: nest-docker-postgres
     environment:
       - PORT=${PORT}
     ports:

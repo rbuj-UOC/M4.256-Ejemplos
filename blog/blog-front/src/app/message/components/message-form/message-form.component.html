@@ -7,7 +7,7 @@
       <input type="text" [formControl]="title" />
 
       <div *ngIf="title.errors">
-        <div *ngIf="title.errors && isValidForm != null && !isValidForm" [ngClass]="'error'">
+        <div *ngIf="title.errors && isValidForm !== null" [ngClass]="'error'">
           <div *ngIf="title.errors.required">Title is required</div>
 
           <div *ngIf="title.errors.maxlength">Title can be max 150 characters long.</div>
@@ -20,7 +20,7 @@
       <input type="text" [formControl]="description" />
 
       <div *ngIf="description.errors">
-        <div *ngIf="description.errors && isValidForm != null && !isValidForm" [ngClass]="'error'">
+        <div *ngIf="description.errors && isValidForm !== null" [ngClass]="'error'">
           <div *ngIf="description.errors.required">Description is required</div>
         </div>
       </div>

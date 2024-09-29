@@ -5,7 +5,7 @@
       <label for="name">Name: </label>
       <input type="text" [formControl]="name" />
     </div>
-    <div *ngIf="name.errors && isValidForm != null && !isValidForm" class="error">
+    <div *ngIf="name.errors && isValidForm !== null" class="error">
       <span *ngIf="name.errors.required">Name is required</span>
       <span *ngIf="name.errors.minlength">Name must be greater than 5 characters</span>
       <span *ngIf="name.errors.maxlength">Name must be lower than 25 characters</span>
@@ -15,7 +15,7 @@
       <label for="surname1">1st surname: </label>
       <input type="text" [formControl]="surname1" />
     </div>
-    <div *ngIf="surname1.errors && isValidForm != null && !isValidForm" class="error">
+    <div *ngIf="surname1.errors && isValidForm !== null" class="error">
       <span *ngIf="surname1.errors.required">1st surname is required</span>
       <span *ngIf="surname1.errors.minlength">1st surname must be greater than 5 characters</span>
       <span *ngIf="surname1.errors.maxlength">1st surname must be lower than 25 characters</span>
@@ -25,7 +25,7 @@
       <label for="surname2">2nd surname: </label>
       <input type="text" [formControl]="surname2" />
     </div>
-    <div *ngIf="surname2.errors && isValidForm != null && !isValidForm" class="error">
+    <div *ngIf="surname2.errors && isValidForm !== null" class="error">
       <span *ngIf="surname2.errors.minlength">2nd surname must be greater than 5 characters</span>
       <span *ngIf="surname2.errors.maxlength">2nd surname must be lower than 25 characters</span>
     </div>
@@ -34,7 +34,7 @@
       <label for="alias">Alias: </label>
       <input type="text" [formControl]="alias" />
     </div>
-    <div *ngIf="alias.errors && isValidForm != null && !isValidForm" class="error">
+    <div *ngIf="alias.errors && isValidForm !== null" class="error">
       <span *ngIf="alias.errors.required">Alias is required</span>
       <span *ngIf="alias.errors.minlength">Alias must be greater than 5 characters</span>
       <span *ngIf="alias.errors.maxlength">Alias must be lower than 25 characters</span>
@@ -44,7 +44,7 @@
       <label for="password">Birth date: </label>
       <input type="date" [formControl]="birthDate" />
     </div>
-    <div *ngIf="birthDate.errors && isValidForm != null && !isValidForm" class="error">
+    <div *ngIf="birthDate.errors && isValidForm !== null" class="error">
       <span *ngIf="birthDate.errors.required">Birth date is required</span>
     </div>
 
@@ -52,7 +52,7 @@
       <label for="email">Email: </label>
       <input type="email" [formControl]="email" />
     </div>
-    <div *ngIf="email.errors && isValidForm != null && !isValidForm" class="error">
+    <div *ngIf="email.errors && isValidForm !== null" class="error">
       <span *ngIf="email.errors.required">Email is required</span>
       <span *ngIf="email.errors.invalidKeyWord">Email info&#64;uoc.edu is reserved fort the system admin</span>
       <span *ngIf="email.errors.pattern">Email not a valid format.</span>
@@ -62,7 +62,7 @@
       <label for="password">Password: </label>
       <input type="password" [formControl]="password" />
     </div>
-    <div *ngIf="password.errors && isValidForm != null && !isValidForm" class="error">
+    <div *ngIf="password.errors && isValidForm !== null" class="error">
       <span *ngIf="password.errors.required">Password is required</span>
       <span *ngIf="password.errors.minlength">Password must be greater than 8 characters</span>
     </div>

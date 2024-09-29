@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageDto } from '../../models/message-dto.model';
@@ -9,7 +9,7 @@ import { MessageService } from '../../services/message.service';
   templateUrl: './message-form.component.html',
   styleUrl: './message-form.component.scss'
 })
-export class MessageFormComponent {
+export class MessageFormComponent implements OnInit {
   message: MessageDto;
   title: UntypedFormControl;
   description: UntypedFormControl;
@@ -86,7 +86,7 @@ export class MessageFormComponent {
   }
 
   private async editMessage(): Promise<boolean> {
-    let responseOK: boolean = false;
+    let responseOK = false;
     if (this.msgId) {
       try {
         await this.messageService.updateMessage(+this.msgId, this.message);
@@ -99,7 +99,7 @@ export class MessageFormComponent {
   }
 
   private async createMessage(): Promise<boolean> {
-    let responseOK: boolean = false;
+    let responseOK = false;
     try {
       await this.messageService.createMessage(this.message);
       responseOK = true;

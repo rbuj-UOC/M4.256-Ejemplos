@@ -91,7 +91,7 @@ Integración con Prettier.
 #### Instalación
 
 ```
-npm install --save-dev eslint-config-prettier
+npm install prettier-eslint eslint-config-prettier eslint-plugin-prettier --save-dev
 ```
 
 #### Configuración

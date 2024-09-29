@@ -36,7 +36,7 @@ export class MessageListComponent {
 
   async deleteMessage(msgId: number): Promise<void> {
     // show confirmation popup
-    let result = confirm('Confirm delete message with id: ' + msgId + ' .');
+    const result = confirm('Confirm delete message with id: ' + msgId + ' .');
     if (result) {
       try {
         const rowsAffected = await this.messageService.deleteMessage(msgId);
