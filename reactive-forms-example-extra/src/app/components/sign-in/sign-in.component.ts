@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 import { checkInvalidKeyWord } from '../../directives/check-invalid-keyword.validator';
 import { UserDto } from '../../models/user-dto.model';
 
@@ -22,13 +27,38 @@ export class SignInComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.user = new UserDto('', '', '', '', new Date(), '', '');
-    this.email = new FormControl(this.user.email, [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'), checkInvalidKeyWord(/info.uoc.edu/)]);
-    this.password = new FormControl(this.user.password, [Validators.required, Validators.minLength(8)]);
-    this.name = new FormControl(this.user.name, [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
-    this.surname1 = new FormControl(this.user.surname1, [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
-    this.surname2 = new FormControl(this.user.surname2, [Validators.minLength(5), Validators.maxLength(25)]);
-    this.alias = new FormControl(this.user.alias, [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
-    this.birthDate = new FormControl(this.user.birthDate, [Validators.required, Validators.minLength(8)]);
+    this.email = new FormControl(this.user.email, [
+      Validators.required,
+      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+      checkInvalidKeyWord(/info.uoc.edu/)
+    ]);
+    this.password = new FormControl(this.user.password, [
+      Validators.required,
+      Validators.minLength(8)
+    ]);
+    this.name = new FormControl(this.user.name, [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(25)
+    ]);
+    this.surname1 = new FormControl(this.user.surname1, [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(25)
+    ]);
+    this.surname2 = new FormControl(this.user.surname2, [
+      Validators.minLength(5),
+      Validators.maxLength(25)
+    ]);
+    this.alias = new FormControl(this.user.alias, [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(25)
+    ]);
+    this.birthDate = new FormControl(this.user.birthDate, [
+      Validators.required,
+      Validators.minLength(8)
+    ]);
     this.isValidForm = null;
     this.registerForm = this.formBuilder.group({
       email: this.email,

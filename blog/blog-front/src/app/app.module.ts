@@ -10,7 +10,12 @@ import { MessageListComponent } from './message/components/message-list/message-
 
 @NgModule({
   declarations: [AppComponent, MessageListComponent, MessageFormComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

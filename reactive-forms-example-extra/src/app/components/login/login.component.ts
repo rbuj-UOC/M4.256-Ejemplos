@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 import { checkInvalidKeyWord } from '../../directives/check-invalid-keyword.validator';
 import { UserDto } from '../../models/user-dto.model';
 
@@ -16,8 +21,14 @@ export class LoginComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.user = new UserDto('', '', '', '', new Date(), '', '');
-    this.email = new FormControl(this.user.email, [Validators.required, checkInvalidKeyWord(/info.uoc.edu/)]);
-    this.password = new FormControl(this.user.password, [Validators.required, Validators.minLength(8)]);
+    this.email = new FormControl(this.user.email, [
+      Validators.required,
+      checkInvalidKeyWord(/info.uoc.edu/)
+    ]);
+    this.password = new FormControl(this.user.password, [
+      Validators.required,
+      Validators.minLength(8)
+    ]);
     this.loginForm = this.formBuilder.group({
       email: this.email,
       password: this.password
@@ -27,6 +38,11 @@ export class LoginComponent {
   checkLogin(): void {
     this.user.email = this.email.value;
     this.user.password = this.password.value;
-    console.log('User email --> ' + this.user.email + ' User password --> ' + this.user.password);
+    console.log(
+      'User email --> ' +
+        this.user.email +
+        ' User password --> ' +
+        this.user.password
+    );
   }
 }

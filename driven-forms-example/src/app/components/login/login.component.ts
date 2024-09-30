@@ -18,6 +18,11 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin(): void {
-    console.log('User email --> ' + this.user.email + ' User password --> ' + this.user.password);
+    console.log(
+      'User email --> ' +
+        this.user.email +
+        ' User password --> ' +
+        this.user.password
+    );
   }
 }

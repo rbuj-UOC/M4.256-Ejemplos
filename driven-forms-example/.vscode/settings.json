@@ -1,7 +1,16 @@
 {
-  "notebook.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.language": "es,en",
   "angular.enable-strict-mode-prompt": false,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "eslint.format.enable": true,
+  "emmet.triggerExpansionOnTab": true,
+  "cSpell.language": "es,en",
   "htmlhint.options": {
     "attr-lowercase": false,
     "doctype-first": false

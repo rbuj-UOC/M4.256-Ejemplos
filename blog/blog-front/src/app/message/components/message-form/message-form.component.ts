@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageDto } from '../../models/message-dto.model';
 import { MessageService } from '../../services/message.service';
@@ -32,9 +37,15 @@ export class MessageFormComponent implements OnInit {
     this.isUpdateMode = false;
     this.validRequest = false;
 
-    this.title = new UntypedFormControl(this.message.title, [Validators.required, Validators.maxLength(150)]);
+    this.title = new UntypedFormControl(this.message.title, [
+      Validators.required,
+      Validators.maxLength(150)
+    ]);
 
-    this.description = new UntypedFormControl(this.message.description, Validators.required);
+    this.description = new UntypedFormControl(
+      this.message.description,
+      Validators.required
+    );
 
     this.messageForm = this.formBuilder.group({
       title: this.title,

@@ -20,7 +20,9 @@ export class MessageService {
   }
 
   getMessageById(msgId: number): Promise<MessageDto> {
-    return this.http.get<MessageDto>(this.urlMessageApi + '/' + msgId).toPromise();
+    return this.http
+      .get<MessageDto>(this.urlMessageApi + '/' + msgId)
+      .toPromise();
   }
 
   createMessage(msg: MessageDto): Promise<MessageDto> {
@@ -28,11 +30,15 @@ export class MessageService {
   }
 
   updateMessage(msgId: number, msg: MessageDto): Promise<MessageDto> {
-    return this.http.put<MessageDto>(this.urlMessageApi + '/' + msgId, msg).toPromise();
+    return this.http
+      .put<MessageDto>(this.urlMessageApi + '/' + msgId, msg)
+      .toPromise();
   }
 
   deleteMessage(msgId: number): Promise<deleteResponse> {
-    return this.http.delete<deleteResponse>(this.urlMessageApi + '/' + msgId).toPromise();
+    return this.http
+      .delete<deleteResponse>(this.urlMessageApi + '/' + msgId)
+      .toPromise();
   }
 
   errorLog(error: HttpErrorResponse): void {
