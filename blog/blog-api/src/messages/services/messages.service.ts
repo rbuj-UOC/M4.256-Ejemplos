@@ -16,7 +16,7 @@ export class MessagesService {
   }
 
   async getById(messageId: number): Promise<MessageDto> {
-    return await this.messageRepository.findOne(messageId);
+    return await this.messageRepository.findOneBy({id: messageId});
   }
 
   async create(msg: MessageDto): Promise<MessageDto> {
@@ -29,7 +29,7 @@ export class MessagesService {
   }
 
   async update(messageId: number, msg: MessageDto): Promise<MessageDto> {
-    const updateMessage = await this.messageRepository.findOne(messageId);
+    const updateMessage = await this.messageRepository.findOneBy({id: messageId});
 
     updateMessage.title = msg.title;
     updateMessage.description = msg.description;

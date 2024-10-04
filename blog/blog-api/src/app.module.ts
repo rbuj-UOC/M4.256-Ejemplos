@@ -7,7 +7,19 @@ import { MessagesController } from './messages/messages.controller';
 import { MessagesService } from './messages/services/messages.service';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), TypeOrmModule.forFeature([Message])],
+  imports: [
+    TypeOrmModule.forFeature([Message]),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'db',
+      port: 5432,
+      username: 'postgres',
+      password: 'root',
+      database: 'uoc-blog',
+      autoLoadEntities: true,
+      synchronize: true,
+    }),
+  ],
   controllers: [AppController, MessagesController],
   providers: [AppService, MessagesService],
 })

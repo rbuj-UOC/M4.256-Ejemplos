@@ -24,3 +24,11 @@ Register new server:
   - Hosname name/address: localhost
   - Port: 5432
   - Password: root
+
+# Nest.js, TypeORM and PostgreSQL
+```
+npm install -g @nestjs/cli
+nest new blog-api --strict
+cd blog-api
+npm install --save @nestjs/typeorm typeorm pg
+```
