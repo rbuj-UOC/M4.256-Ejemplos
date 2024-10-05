@@ -23,6 +23,7 @@ export class LoginComponent {
     this.user = new UserDto('', '');
     this.email = new FormControl(this.user.email, [
       Validators.required,
+      Validators.email,
       checkInvalidKeyWord(/info.uoc.edu/)
     ]);
     this.password = new FormControl(this.user.password, [
@@ -38,6 +39,7 @@ export class LoginComponent {
   checkLogin(): void {
     this.user.email = this.email.value;
     this.user.password = this.password.value;
+    this.loginForm.reset();
     console.log(
       'User email --> ' +
         this.user.email +

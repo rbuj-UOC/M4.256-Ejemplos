@@ -20,7 +20,10 @@ export class LoginComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.user = new UserDto('', '');
-    this.email = new FormControl(this.user.email, Validators.required);
+    this.email = new FormControl(this.user.email, [
+      Validators.email,
+      Validators.required
+    ]);
     this.password = new FormControl(this.user.password, [
       Validators.required,
       Validators.minLength(8)
@@ -34,6 +37,7 @@ export class LoginComponent {
   checkLogin(): void {
     this.user.email = this.email.value;
     this.user.password = this.password.value;
+    this.loginForm.reset();
     console.log(
       'User email --> ' +
         this.user.email +

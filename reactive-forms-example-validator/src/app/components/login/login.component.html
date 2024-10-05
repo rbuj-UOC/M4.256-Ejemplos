@@ -7,6 +7,7 @@
     </div>
     <div *ngIf="email.errors && (email.touched || email.dirty)" class="error">
       <span *ngIf="email.errors.required">Email is required</span>
+      <span *ngIf="email.errors.email">Enter a valid email address</span>
       <span *ngIf="email.errors.invalidKeyWord">Email info&#64;uoc.edu is reserved fort the system admin</span>
     </div>
 
