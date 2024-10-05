@@ -1,7 +1,6 @@
 # Prerequisites
 - Install and run [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- Install [Node.js](https://nodejs.org/en/download/package-manager/current)
-- Install [pgAdmin 4](https://www.pgadmin.org/download/pgadmin-4-macos/)
+- Install [pgAdmin 4](https://www.pgadmin.org/download/pgadmin-4-macos/) (optional)
 
 # Backend startup
 ```
@@ -16,17 +15,17 @@ npm i
 npm run start
 ```
 
-# pgAdmin 4
+# pgAdmin 4 (optional)
 Register new server:
 - General
   - Name: (whatever i.e. Docker)
 - Connection
-  - Hosname name/address: localhost
+  - Hostname name/address: localhost
   - Port: 5432
   - Username: postgres
   - Password: root
 
-# Nest.js, TypeORM and PostgreSQL
+# Nest.js, TypeORM and PostgreSQL (info)
 ```
 npm install -g @nestjs/cli
 nest new blog-api --strict
