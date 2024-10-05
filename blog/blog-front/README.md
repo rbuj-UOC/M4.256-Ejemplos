@@ -84,7 +84,6 @@ Crear el archivo [.prettierrc.json](.prettierrc.json)
 ```json
 {
   "trailingComma": "none",
-  "printWidth": 1000,
   "tabWidth": 2,
   "semi": true,
   "singleQuote": true

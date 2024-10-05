@@ -23,6 +23,7 @@ Register new server:
 - Connection
   - Hosname name/address: localhost
   - Port: 5432
+  - Username: postgres
   - Password: root
 
 # Nest.js, TypeORM and PostgreSQL
