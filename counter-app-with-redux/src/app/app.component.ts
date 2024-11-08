@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { decrement, increment } from './Counter/counter.actions';
 import { AppState } from './app.reducer';
-
+import * as actions from './Counter/counter.actions';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,11 +20,11 @@ export class AppComponent {
 
   increase(): void {
     // this.counter = this.counter + 1;
-    this.store.dispatch(increment());
+    this.store.dispatch(actions.increment());
   }
 
   decrease(): void {
     //this.counter = this.counter - 1;
-    this.store.dispatch(decrement());
+    this.store.dispatch(actions.decrement());
   }
 }
