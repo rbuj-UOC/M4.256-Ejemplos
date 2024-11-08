@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.reducer';
 import { TodoDTO } from '../models/todo.dto';
-import { completeTodo } from '../todo.actions';
+import { completeTodo, editTodo } from '../todo.actions';
 
 @Component({
   selector: 'app-todo-list-item',
@@ -12,8 +12,8 @@ import { completeTodo } from '../todo.actions';
 })
 export class TodoListItemComponent implements OnInit {
   @Input() todo!: TodoDTO;
-  public titleInput!: FormControl;
-  public isEditing!: boolean;
+  titleInput!: FormControl;
+  isEditing!: boolean;
 
   constructor(private store: Store<AppState>) {}
 
@@ -28,11 +28,17 @@ export class TodoListItemComponent implements OnInit {
 
   editTask(): void {
     this.isEditing = true;
+    this.titleInput.setValue(this.todo.title);
   }
 
   deleteTask(): void {}
 
   submitTask(): void {
     this.isEditing = true;
+    if (!this.titleInput.invalid && this.titleInput.value != this.todo.title) {
+      this.store.dispatch(
+        editTodo({ id: this.todo.id, title: this.titleInput.value })
+      );
+    }
   }
 }
