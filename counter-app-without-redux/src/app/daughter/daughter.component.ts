@@ -13,4 +13,9 @@ export class DaughterComponent {
     this.counter = this.counter * 2;
     this.changeCounter.emit(this.counter);
   }
+
+  resetGrandDaughter(newCounter: number): void {
+    this.counter = newCounter;
+    this.changeCounter.emit(this.counter);
+  }
 }
