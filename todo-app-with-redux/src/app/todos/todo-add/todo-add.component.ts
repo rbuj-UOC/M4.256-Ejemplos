@@ -10,7 +10,7 @@ import { createTodo } from '../todo.actions';
   styleUrl: './todo-add.component.scss'
 })
 export class TodoAddComponent {
-  public titleInput: FormControl;
+  titleInput: FormControl;
 
   constructor(private store: Store<AppState>) {
     this.titleInput = new FormControl('', Validators.required);

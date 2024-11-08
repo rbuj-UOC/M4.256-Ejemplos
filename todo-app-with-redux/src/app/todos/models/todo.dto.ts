@@ -1,7 +1,7 @@
 export class TodoDTO {
-  public id: number;
-  public title: string;
-  public done: boolean;
+  id: number;
+  title: string;
+  done: boolean;
 
   constructor(title: string) {
     this.id = new Date().getTime();
