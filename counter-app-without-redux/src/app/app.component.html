@@ -30,5 +30,12 @@
         </button>
       </div>
     </div>
+
+    <hr />
+    <hr />
+    <app-daughter
+      [counter]="counter"
+      (changeCounter)="counter = $event"
+    ></app-daughter>
   </div>
 </div>

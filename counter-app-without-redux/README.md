@@ -25,6 +25,7 @@ Ejecuta `ng build` para construir el proyecto. Los artefactos de construcción s
 1. Limpiar la vista [src/app/app.component.html](src/app/app.component.html)
 2. Editar el fichero [src/app/app.component.ts](src/app/app.component.ts)
 3. Editar el fichero [src/app/app.component.html](src/app/app.component.html)
+4. Crear el componente daughter `ng g c daughter`
 
 # Instalación y configuración de los paquetes de Node.js
 
