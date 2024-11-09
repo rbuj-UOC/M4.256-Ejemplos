@@ -8,7 +8,6 @@ export const initialState: TodoDTO[] = [
 
 const _todoReducer = createReducer(
   initialState,
-  on(createTodo, (state, { title }) => [...state, new TodoDTO(title)]),
   on(completeTodo, (state, { id }) => {
     return state.map((todo) => {
       if (todo.id === id) {
@@ -21,6 +20,8 @@ const _todoReducer = createReducer(
       }
     });
   }),
+  on(createTodo, (state, { title }) => [...state, new TodoDTO(title)]),
+  on(deleteTodo, (state, { id }) => state.filter((todo) => todo.id !== id)),
   on(editTodo, (state, { id, title }) => {
     return state.map((todo) => {
       if (todo.id === id) {
@@ -32,8 +33,7 @@ const _todoReducer = createReducer(
         return todo;
       }
     });
-  }),
-  on(deleteTodo, (state, { id }) => state.filter((todo) => todo.id !== id))
+  })
 );
 
 export function todoReducer(state, action: Action) {
