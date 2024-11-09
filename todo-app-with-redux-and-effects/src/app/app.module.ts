@@ -5,8 +5,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { todoReducer } from './todos/reducers';
 import { TodoModule } from './todos/todo.module';
-import { todoReducer } from './todos/todo.reducer';
 
 @NgModule({
   declarations: [AppComponent],

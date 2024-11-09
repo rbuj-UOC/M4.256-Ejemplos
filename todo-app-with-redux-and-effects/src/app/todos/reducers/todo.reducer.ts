@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { TodoDTO } from './models/todo.dto';
-import { completeTodo, createTodo, deleteTodo, editTodo } from './todo.actions';
+import { completeTodo, createTodo, deleteTodo, editTodo } from '../actions';
+import { TodoDTO } from '../models/todo.dto';
 
 export const initialState: TodoDTO[] = [
   new TodoDTO('Read Dennis Ritchie`s book')

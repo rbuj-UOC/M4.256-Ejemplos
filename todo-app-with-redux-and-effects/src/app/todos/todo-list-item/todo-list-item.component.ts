@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.reducer';
+import { completeTodo, deleteTodo, editTodo } from '../actions';
 import { TodoDTO } from '../models/todo.dto';
-import { completeTodo, deleteTodo, editTodo } from '../todo.actions';
 
 @Component({
   selector: 'app-todo-list-item',
