@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { todoReducer } from './todos/reducers';
+import { appReducers } from './app.reducer';
 import { TodoModule } from './todos/todo.module';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { TodoModule } from './todos/todo.module';
     BrowserModule,
     AppRoutingModule,
     TodoModule,
-    StoreModule.forRoot({ todos: todoReducer }),
+    StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: !isDevMode()
