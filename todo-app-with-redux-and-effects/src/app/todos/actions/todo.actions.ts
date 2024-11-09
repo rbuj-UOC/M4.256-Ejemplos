@@ -16,19 +16,25 @@ export const deleteTodo = createAction(
   props<{ id: number }>()
 );
 
-export const editTodo = createAction(
-  '[TODO] Edit todo',
+export const updateTodo = createAction(
+  '[TODO] Update todo',
   props<{ id: number; title: string }>()
 );
 
 export const getAllTodos = createAction('[TODOS] Get all');
 
-export const getAllTodosError = createAction(
-  '[TODOS] Get all error',
+export const getAllTodosFailure = createAction(
+  '[TODOS] Get all failure',
   props<{ payload: any }>()
 );
 
 export const getAllTodosSuccess = createAction(
   '[TODOS] Get all success',
   props<{ todos: TodoDTO[] }>()
+);
+
+export const completeAllTodos = createAction('[TODOS] Complete all todos');
+
+export const deleteCompletedTodos = createAction(
+  '[TODO] Delete completed todos'
 );

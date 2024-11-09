@@ -10,6 +10,6 @@ export class TodoService {
   constructor(private http: HttpClient) {}
 
   getAllTodos(): Observable<TodoDTO[]> {
-    return Object.assign(this.http.get('./assets/mocks/todos.json'));
+    return Object.assign(this.http.get('../assets/mocks/todos.json'));
   }
 }
