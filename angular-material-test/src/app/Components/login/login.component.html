@@ -1,0 +1,23 @@
+<div>
+  <h1>Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="checkLogin()">
+    <div>
+      <label for="email">Eamil:</label>
+      <input type="text" [formControl]="email" />
+      <span style="color: red" *ngIf="email.errors?.['required']"
+        >User email is required</span
+      >
+      <span style="color: red" *ngIf="email.errors?.['email']"
+        >Not a valid email</span
+      >
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" [formControl]="password" />
+      <span style="color: red" *ngIf="password.errors?.['required']"
+        >User password is required</span
+      >
+    </div>
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
+  </form>
+</div>
