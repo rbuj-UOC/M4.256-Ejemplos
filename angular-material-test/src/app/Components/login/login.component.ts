@@ -14,9 +14,9 @@ import { Credentials } from '../../Models/Credentials';
 })
 export class LoginComponent implements OnInit {
   credentials: Credentials;
+  loginForm!: FormGroup;
   email!: FormControl;
   password!: FormControl;
-  loginForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
     this.credentials = new Credentials();
@@ -35,5 +35,13 @@ export class LoginComponent implements OnInit {
     console.log(
       'Email: ' + this.email.valid + ' Password: ' + this.password.value
     );
+  }
+
+  getErrorMessage(): string {
+    let message = '';
+    if (this.password.hasError('required')) {
+      message = 'You must enter a password';
+    }
+    return message;
   }
 }
