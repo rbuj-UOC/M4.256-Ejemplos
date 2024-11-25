@@ -1,3 +1,10 @@
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -6,12 +13,18 @@ import {
   Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Credentials } from '../../Models/Credentials';
+import { Credentials } from '../../Models/credentials';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({ opacity: 0.2 })),
+      transition('void <=> *', animate(1500))
+    ])
+  ]
 })
 export class LoginComponent implements OnInit {
   credentials: Credentials;

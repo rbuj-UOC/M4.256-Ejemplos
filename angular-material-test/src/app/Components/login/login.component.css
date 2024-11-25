@@ -1,0 +1,12 @@
+.container-uoc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  margin: 8px;
+}
+
+.container-uoc > mat-card {
+  padding: 15px;
+}

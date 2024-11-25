@@ -1,41 +1,44 @@
-<div class="container-uoc">
-  <h1>Login</h1>
-  <form [formGroup]="loginForm" (ngSubmit)="checkLogin()">
-    <section>
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your email</mat-label>
-        <input
-          matInput
-          type="email"
-          [formControl]="email"
-          required
-          placeholder="student@uoc.edu"
-        />
-        <mat-error
-          *ngIf="email.hasError('email') && !email.hasError('required')"
-          >Please enter a valid email address</mat-error
+<div class="container-uoc" [@fadeInOut]>
+  <mat-card class="mat-elevation-z4">
+    <form [formGroup]="loginForm" (ngSubmit)="checkLogin()">
+      <section>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            type="email"
+            [formControl]="email"
+            required
+            placeholder="student@uoc.edu"
+          />
+          <mat-error
+            *ngIf="email.hasError('email') && !email.hasError('required')"
+            >Please enter a valid email address</mat-error
+          >
+          <mat-error *ngIf="email.hasError('required')"
+            >Email is <strong>required</strong></mat-error
+          >
+        </mat-form-field>
+      </section>
+      <section>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input matInput type="password" [formControl]="password" required />
+          <mat-error *ngIf="password.invalid">{{
+            getErrorMessage()
+          }}</mat-error>
+        </mat-form-field>
+      </section>
+      <section style="text-align: center">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!loginForm.valid"
         >
-        <mat-error *ngIf="email.hasError('required')"
-          >Email is <strong>required</strong></mat-error
-        >
-      </mat-form-field>
-    </section>
-    <section>
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your password</mat-label>
-        <input matInput type="password" [formControl]="password" required />
-        <mat-error *ngIf="password.invalid">{{ getErrorMessage() }}</mat-error>
-      </mat-form-field>
-    </section>
-    <section style="text-align: center">
-      <button
-        mat-raised-button
-        color="primary"
-        type="submit"
-        [disabled]="!loginForm.valid"
-      >
-        Login
-      </button>
-    </section>
-  </form>
+          Login
+        </button>
+      </section>
+    </form>
+  </mat-card>
 </div>
