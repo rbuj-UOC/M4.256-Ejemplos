@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Credentials } from '../../Models/Credentials';
 
 @Component({
@@ -18,7 +19,10 @@ export class LoginComponent implements OnInit {
   email!: FormControl;
   password!: FormControl;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
     this.credentials = new Credentials();
   }
 
@@ -35,6 +39,7 @@ export class LoginComponent implements OnInit {
     console.log(
       'Email: ' + this.email.valid + ' Password: ' + this.password.value
     );
+    this.router.navigate(['cards']);
   }
 
   getErrorMessage(): string {
