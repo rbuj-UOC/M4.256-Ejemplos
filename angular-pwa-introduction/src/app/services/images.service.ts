@@ -8,7 +8,13 @@ import { Image} from '../models/image.interface'
 })
 export class ImagesService {
   constructor( private http: HttpClient) { }
+
   getAllImages(): Observable<Image[]> {
     return this.http.get<Image[]>('https://picsum.photos/v2/list');
   }
+
+  getImageById(id: string | null): Observable<Image> {
+    return this.http.get<Image>('https://picsum.photos/id/' + id + '/info');
+  }
+
 }
