@@ -34,7 +34,7 @@
     {
       "name": "images-api",
       "urls": [
-        "https://picsum.photos/v2/list"
+        "https://picsum.photos/**"
       ],
       "cacheConfig": {
         "maxSize": 10,
