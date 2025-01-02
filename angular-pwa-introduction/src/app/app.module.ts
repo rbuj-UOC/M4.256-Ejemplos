@@ -9,11 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ImagesComponent,
-    ImageComponent
-  ],
+  declarations: [AppComponent, ImagesComponent, ImageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,4 +24,4 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -6,7 +6,7 @@ You can skip this step if you have homebrew installed on your system.
 
 Read how to install Homebrew from [its homepage](https://brew.sh/).
 
-## Install Node 18
+## Install Node 20
 
 Update and upgrade installed packages:
 ```
@@ -24,20 +24,20 @@ $ node --version
 v22.9.0
 ```
 
-Install node 18:
+Install node 20:
 ```
-brew install node@18
+brew install node@20
 ```
 
 Overwrite linked version of node:
 ```
-brew link --overwrite node@18
+brew link --overwrite node@20
 ```
 
 Check the version of node:
 ```
 $ node --version
-v18.20.4
+v20.18.1
 ```
 
 ## Install Angular

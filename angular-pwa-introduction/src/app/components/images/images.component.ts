@@ -8,9 +8,9 @@ import { Image } from '../../models/image.interface';
   styleUrl: './images.component.css'
 })
 export class ImagesComponent implements OnInit {
- images: Image[] = [];
-  constructor(private imagesService: ImagesService){};
+  images: Image[] = [];
+  constructor(private imagesService: ImagesService) {}
   ngOnInit(): void {
-    this.imagesService.getAllImages().subscribe((images) => this.images = images);
+    this.imagesService.getAllImages().subscribe((images) => (this.images = images));
   }
 }
