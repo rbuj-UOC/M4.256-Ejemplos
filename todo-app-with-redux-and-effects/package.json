@@ -9,6 +9,8 @@
     "test": "ng test",
     "lint": "ng lint"
   },
+  "author": "Robert Buj <rbuj@uoc.edu>",
+  "license": "CC0-1.0",
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.0",

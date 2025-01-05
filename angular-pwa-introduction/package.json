@@ -1,6 +1,9 @@
 {
   "name": "angular-pwa-introduction",
   "version": "0.0.0",
+  "author": "Robert Buj <rbuj@uoc.edu>",
+  "license": "CC0-1.0",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
