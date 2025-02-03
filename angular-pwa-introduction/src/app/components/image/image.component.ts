@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { ImagesService } from '../../services/images.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Image } from '../../models/image.interface';
+import { ImagesService } from '../../services/images.service';
 
 @Component({
   selector: 'app-image',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
   templateUrl: './image.component.html',
   styleUrl: './image.component.css'
 })

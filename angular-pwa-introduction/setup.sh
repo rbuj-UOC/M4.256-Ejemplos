@@ -1,3 +1,18 @@
+#!/bin/bash
+PROJECT_NAME=angular-pwa-introduction
+
+# create the projecte
+npx @angular/cli@latest new ${PROJECT_NAME} --no-strict --standalone=false --style=css --ssr=no --skip-tests --package-manager="npm"
+
+# install the packages
+cd ${PROJECT_NAME}
+ng add @angular-eslint/schematics --defaults --skip-confirmation
+npm install --save-dev prettier prettier-eslint eslint-config-prettier eslint-plugin-prettier
+
+ng add @angular/pwa --defaults --skip-confirmation 
+
+# overwrite / create config files
+cat << EOF > eslint.config.js
 // @ts-check
 const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
@@ -43,3 +58,22 @@ module.exports = tseslint.config(
     rules: {},
   }
 );
+EOF
+cat << EOF > .prettierrc.json
+{
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
+}
+EOF
+
+# generate components

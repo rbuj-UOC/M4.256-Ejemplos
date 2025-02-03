@@ -4,6 +4,8 @@ import { ImagesService } from '../../Services/images.service';
 
 @Component({
   selector: 'app-cards',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.css'
 })
