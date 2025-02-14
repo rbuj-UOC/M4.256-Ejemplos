@@ -1,34 +1,48 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  ParseIntPipe,
+  Put,
+} from '@nestjs/common';
 import { ProductsService } from './products.service';
-import { CreateProductDto } from './dto/create-product.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
+import { ProductDTO } from './dto/product.dto';
+import { Product } from './entities/product.entity';
 
 @Controller('products')
 export class ProductsController {
-  constructor(private readonly productsService: ProductsService) {}
+  constructor(private productsService: ProductsService) {}
 
-  @Post()
-  create(@Body() createProductDto: CreateProductDto) {
-    return this.productsService.create(createProductDto);
+  @Get('getAll')
+  async getAll() {
+    return await this.productsService.getAll();
+  }
+  @Get('getOne/:id')
+  async getOne(@Param('id', ParseIntPipe) id: number): Promise<Product> {
+    return await this.productsService.getOne(id);
   }
 
-  @Get()
-  findAll() {
-    return this.productsService.findAll();
+  @Post('create')
+  async addProduct(@Body() productData: ProductDTO) {
+    await this.productsService.addProduct(productData);
+    return 'Product added successfully';
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.productsService.findOne(+id);
+  @Put('update/:id')
+  async updateProduct(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateData: ProductDTO,
+  ) {
+    await this.productsService.updateProduct(id, updateData);
+    return 'Product updated successfully';
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
-    return this.productsService.update(+id, updateProductDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.productsService.remove(+id);
+  @Delete('delete/:id')
+  async deleteProduct(@Param('id', ParseIntPipe) id: number) {
+    await this.productsService.deleteProduct(id);
+    return 'Product deleted successfully';
   }
 }

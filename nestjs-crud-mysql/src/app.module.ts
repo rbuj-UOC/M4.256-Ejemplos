@@ -7,7 +7,11 @@ import { ProductsModule } from './products/products.module';
 import databaseConfig from 'config/database.config';
 
 @Module({
-  imports: [ConfigModule.forRoot(), TypeOrmModule.forRoot(databaseConfig()), ProductsModule],
+  imports: [
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot(databaseConfig()),
+    ProductsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
