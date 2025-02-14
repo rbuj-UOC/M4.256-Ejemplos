@@ -1,33 +1,33 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
   ParseIntPipe,
+  Post,
   Put,
 } from '@nestjs/common';
-import { ProductsService } from './products.service';
-import { ProductDTO } from './dto/product.dto';
-import { Product } from './entities/product.entity';
+import { ProductDTO } from 'src/DTO/product.dto';
+import { Product } from 'src/entities/product';
+import { ProductService } from './product.service';
 
-@Controller('products')
-export class ProductsController {
-  constructor(private productsService: ProductsService) {}
+@Controller('product')
+export class ProductController {
+  constructor(private productService: ProductService) {}
 
   @Get('getAll')
   async getAll() {
-    return await this.productsService.getAll();
+    return await this.productService.getAll();
   }
   @Get('getOne/:id')
   async getOne(@Param('id', ParseIntPipe) id: number): Promise<Product> {
-    return await this.productsService.getOne(id);
+    return await this.productService.getOne(id);
   }
 
   @Post('create')
   async addProduct(@Body() productData: ProductDTO) {
-    await this.productsService.addProduct(productData);
+    await this.productService.addProduct(productData);
     return 'Product added successfully';
   }
 
@@ -36,13 +36,13 @@ export class ProductsController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateData: ProductDTO,
   ) {
-    await this.productsService.updateProduct(id, updateData);
+    await this.productService.updateProduct(id, updateData);
     return 'Product updated successfully';
   }
 
   @Delete('delete/:id')
   async deleteProduct(@Param('id', ParseIntPipe) id: number) {
-    await this.productsService.deleteProduct(id);
+    await this.productService.deleteProduct(id);
     return 'Product deleted successfully';
   }
 }
