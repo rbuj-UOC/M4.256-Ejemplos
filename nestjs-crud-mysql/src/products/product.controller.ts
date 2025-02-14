@@ -20,6 +20,7 @@ export class ProductController {
   async getAll() {
     return await this.productService.getAll();
   }
+
   @Get('getOne/:id')
   async getOne(@Param('id', ParseIntPipe) id: number): Promise<Product> {
     return await this.productService.getOne(id);
