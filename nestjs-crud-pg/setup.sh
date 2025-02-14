@@ -9,3 +9,7 @@ cd ${PROJECT_NAME}
 npm install --save @nestjs/typeorm typeorm pg
 npm install --save @nestjs/config
 npm install --save @nestjs/class-validator class-validator
+
+# nest g module products/product --no-spec --flat
+# nest g controller products/product --no-spec --flat --skip-import
+# nest g service products/product --no-spec --flat --skip-import
