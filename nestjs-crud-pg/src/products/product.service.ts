@@ -7,7 +7,8 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class ProductService {
   constructor(
-    @InjectRepository(Product) private productRepository: Repository<Product>,
+    @InjectRepository(Product)
+    private productRepository: Repository<Product>,
   ) {}
 
   async addProduct(newProduct: ProductDTO) {
