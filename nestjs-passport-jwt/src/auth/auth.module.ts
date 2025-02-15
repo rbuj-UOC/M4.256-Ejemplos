@@ -6,14 +6,14 @@ import { UsersModule } from '../users/users.module';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
-import { jwtConfig } from 'src/config/jwt.config';
+import jwtConfig from 'src/config/jwt.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     UsersModule,
     PassportModule,
-    JwtModule.register(jwtConfig),
+    JwtModule.register(jwtConfig()),
   ],
   providers: [AuthService, LocalStrategy, JwtStrategy],
   exports: [AuthService],
