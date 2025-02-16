@@ -22,11 +22,6 @@ export class User {
   password: string;
 
   @BeforeInsert()
-  async hashPassword() {
-    const salt = await bcrypt.genSalt();
-    this.password = await bcrypt.hash(this.password, salt);
-  }
-
   @BeforeUpdate()
   async hashPasswordUpdate() {
     const salt = await bcrypt.genSalt();
