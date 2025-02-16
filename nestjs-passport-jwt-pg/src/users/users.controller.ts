@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -12,6 +13,7 @@ import { UsersService } from './users.service';
 import { User } from './users.entity';
 import { CreateUserDTO } from './dto/create-user.dto';
 import { UpdateUserDTO } from './dto/update-user.dto';
+import { QueryFailedError } from 'typeorm';
 
 @Controller('user')
 export class UsersController {
@@ -29,8 +31,21 @@ export class UsersController {
 
   @Post('create')
   async addUser(@Body() userData: CreateUserDTO) {
-    await this.usersService.addUser(userData);
-    return 'User added successfully';
+    try {
+      await this.usersService.addUser(userData);
+    } catch (e) {
+      let message = 'User could not be created';
+      if (
+        e &&
+        e instanceof QueryFailedError &&
+        typeof e.driverError === 'object' &&
+        'detail' in e.driverError &&
+        typeof e.driverError.detail === 'string'
+      ) {
+        message = e.driverError.detail;
+      }
+      throw new BadRequestException(message);
+    }
   }
 
   @Put('update/:id')

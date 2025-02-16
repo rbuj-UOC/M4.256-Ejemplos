@@ -18,7 +18,7 @@ export class User {
   @Column('varchar', { unique: true, nullable: false })
   email: string;
 
-  @Column('varchar', { nullable: false })
+  @Column('varchar', { nullable: false, select: false })
   password: string;
 
   @BeforeInsert()

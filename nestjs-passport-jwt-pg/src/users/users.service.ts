@@ -32,8 +32,11 @@ export class UsersService {
     return user;
   }
 
-  async getOneByEmail(email: string) {
-    const user = await this.userRepository.findOne({ where: { email } });
+  async getOneByEmailWithPassword(email: string) {
+    const user = await this.userRepository.findOne({
+      where: { email },
+      select: ['id', 'username', 'email', 'password'],
+    });
     if (!user) {
       throw new NotFoundException(`User with email ${email} not found`);
     }

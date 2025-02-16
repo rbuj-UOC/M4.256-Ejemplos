@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 
@@ -10,20 +10,16 @@ export class AuthService {
   ) {}
 
   async validateUser(email: string, pass: string): Promise<any> {
-    try {
-      const user = await this.usersService.getOneByEmail(email);
-      if (!user) {
-        throw new Error('User does not exist');
-      }
-      const matchPasswords = await user.validatePassword(pass);
-      if (!matchPasswords) {
-        throw new Error('Invalid password');
-      }
-      const { password, ...result } = user;
-      return result;
-    } catch (error) {
-      return null;
+    const user = await this.usersService.getOneByEmailWithPassword(email);
+    if (!user) {
+      throw new UnauthorizedException('Email does not exist');
     }
+    const matchPasswords = await user.validatePassword(pass);
+    if (!matchPasswords) {
+      throw new UnauthorizedException('Invalid password');
+    }
+    const { password, ...result } = user;
+    return result;
   }
 
   async login(user: any) {
