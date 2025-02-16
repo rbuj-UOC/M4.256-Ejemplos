@@ -15,7 +15,7 @@ export class UsersService {
     return await this.userRepository.find();
   }
 
-  async getOne(id: number) {
+  async getOne(id: string) {
     const user = await this.userRepository.findOne({ where: { id } });
     if (!user) {
       throw new NotFoundException(`User with ID ${id} not found`);
@@ -49,7 +49,7 @@ export class UsersService {
     return await this.userRepository.save(user);
   }
 
-  async updateUser(id: number, updateData: UserDTO) {
+  async updateUser(id: string, updateData: UserDTO) {
     const user = await this.userRepository.findOne({ where: { id } });
     if (!user) {
       throw new NotFoundException(`User with ID ${id} not found`);
@@ -58,7 +58,7 @@ export class UsersService {
     return await this.userRepository.save(user);
   }
 
-  async deleteUser(id: number) {
+  async deleteUser(id: string) {
     const user = await this.userRepository.findOne({ where: { id } });
     if (!user) {
       throw new NotFoundException(`User with ID ${id} not found`);
