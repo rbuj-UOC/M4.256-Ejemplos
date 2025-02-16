@@ -1,6 +1,6 @@
 import { registerAs } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { Product } from 'src/entities/product';
+import { Product } from 'src/products/product.entity';
 
 export default registerAs(
   'database',

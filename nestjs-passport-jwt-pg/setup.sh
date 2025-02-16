@@ -12,6 +12,8 @@ npm install --save @nestjs/config
 
 npm install --save @nestjs/class-validator class-validator class-transformer
 
+npm install --save @nestjs/mapped-types
+
 npm install --save @nestjs/passport passport passport-local
 npm install --save-dev @types/passport-local
 

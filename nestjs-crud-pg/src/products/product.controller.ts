@@ -8,9 +8,10 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { ProductDTO } from 'src/DTO/product.dto';
-import { Product } from 'src/entities/product';
+import { Product } from 'src/products/product.entity';
 import { ProductService } from './product.service';
+import { CreateProductDTO } from './dto/create-product.dto';
+import { UpdateProductDTO } from './dto/update-product.dto';
 
 @Controller('product')
 export class ProductController {
@@ -27,7 +28,7 @@ export class ProductController {
   }
 
   @Post('create')
-  async addProduct(@Body() productData: ProductDTO) {
+  async addProduct(@Body() productData: CreateProductDTO) {
     await this.productService.addProduct(productData);
     return 'Product added successfully';
   }
@@ -35,7 +36,7 @@ export class ProductController {
   @Put('update/:id')
   async updateProduct(
     @Param('id', ParseIntPipe) id: number,
-    @Body() updateData: ProductDTO,
+    @Body() updateData: UpdateProductDTO,
   ) {
     await this.productService.updateProduct(id, updateData);
     return 'Product updated successfully';

@@ -1,7 +1,7 @@
 import { IsString } from '@nestjs/class-validator';
 import { IsNotEmpty, Min } from 'class-validator';
 
-export class ProductDTO {
+export class CreateProductDTO {
   @IsString()
   @IsNotEmpty({ message: 'Please define a product name' })
   productname: string;

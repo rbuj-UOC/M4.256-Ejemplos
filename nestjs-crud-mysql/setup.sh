@@ -8,7 +8,8 @@ cd ${PROJECT_NAME}
 
 npm install --save @nestjs/typeorm typeorm mysql2
 npm install --save @nestjs/config
-npm install --save @nestjs/class-validator class-validator
+npm install --save @nestjs/class-validator class-validator class-transformer
+npm install --save @nestjs/mapped-types
 
 # nest g module products/product --no-spec --flat
 # nest g controller products/product --no-spec --flat --skip-import
