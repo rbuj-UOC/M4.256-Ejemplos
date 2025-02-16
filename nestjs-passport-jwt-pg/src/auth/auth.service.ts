@@ -9,9 +9,9 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(username: string, pass: string): Promise<any> {
+  async validateUser(email: string, pass: string): Promise<any> {
     try {
-      const user = await this.usersService.getOneByUsername(username);
+      const user = await this.usersService.getOneByEmail(email);
       if (!user) {
         throw new Error('User does not exist');
       }
@@ -22,9 +22,8 @@ export class AuthService {
       const { password, ...result } = user;
       return result;
     } catch (error) {
-      console.log(error);
+      return null;
     }
-    return null;
   }
 
   async login(user: any) {

@@ -31,9 +31,18 @@ export class UsersService {
     return user;
   }
 
+  async getOneByEmail(email: string) {
+    const user = await this.userRepository.findOne({ where: { email } });
+    if (!user) {
+      throw new NotFoundException(`User with email ${email} not found`);
+    }
+    return user;
+  }
+
   async addUser(userData: UserDTO) {
-    const { username, password } = userData;
+    const { email, username, password } = userData;
     const user = this.userRepository.create({
+      email,
       username,
       password,
     });
