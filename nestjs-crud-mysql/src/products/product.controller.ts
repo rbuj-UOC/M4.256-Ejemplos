@@ -9,9 +9,9 @@ import {
   Put,
 } from '@nestjs/common';
 import { Product } from 'src/products/product.entity';
-import { ProductService } from './product.service';
 import { CreateProductDTO } from './dto/create-product.dto';
 import { UpdateProductDTO } from './dto/update-product.dto';
+import { ProductService } from './product.service';
 
 @Controller('product')
 export class ProductController {

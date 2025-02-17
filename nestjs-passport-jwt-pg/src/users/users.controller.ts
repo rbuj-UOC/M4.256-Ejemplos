@@ -9,11 +9,11 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { User } from './users.entity';
+import { QueryFailedError } from 'typeorm';
 import { CreateUserDTO } from './dto/create-user.dto';
 import { UpdateUserDTO } from './dto/update-user.dto';
-import { QueryFailedError } from 'typeorm';
+import { User } from './entities/users.entity';
+import { UsersService } from './users.service';
 
 @Controller('user')
 export class UsersController {
@@ -46,6 +46,7 @@ export class UsersController {
       }
       throw new BadRequestException(message);
     }
+    return 'User created successfully';
   }
 
   @Put('update/:id')
